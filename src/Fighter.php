@@ -10,6 +10,7 @@ class Fighter
     private int $dexterity;
     private string $image;
     private ?Weapon $weapon = null;
+    private ?Shield $shield = null;
 
     private int $life = self::MAX_LIFE;
     
@@ -25,10 +26,7 @@ class Fighter
         $this->image = $image;
     }
 
-    /**
-     * Get the value of name
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -56,36 +54,55 @@ class Fighter
 
     public function getDamage(): int
     {
-        if ($this->getDamage()) {
-            return $this->getStrength() + $this->weapon->getDamage(); //$this->getWeapon()->getDamage();
+        if ($this->getWeapon()) {
+            return $this->getStrength() + $this->weapon->getDamage(); // $this->getWeapon()->getDamage();
         }
 
         return $this->getStrength();
     }
 
 
+    public function getWeapon(): ?Weapon
+    {
+        return $this->weapon;
+    }
 
-    /**
-     * Get the value of life
-     */
-    public function getLife()
+    public function setWeapon(?Weapon $weapon): void
+    {
+        $this->weapon = $weapon;
+    }
+
+    public function getDefense(): int
+    {
+        if ($this->getShield()) {
+            return $this->getDexterity() + $this->shield->getProtection();
+        }
+
+        return $this->getDexterity();
+    }
+
+    public function getShield(): ?Shield
+    {
+        return $this->shield;
+    }
+
+    public function setShield(?Shield $shield): void
+    {
+        $this->shield = $shield;
+    }
+
+    public function getLife(): int
     {
         return $this->life;
     }
 
-    /**
-     * Set the value of life
-     *
-     * @return  self
-     */
-    public function setLife($life)
+    public function setLife($life): void
     {
         if($life < 0) {
             $life = 0;
         }
         $this->life = $life;
 
-        return $this;
     }
 
     public function isAlive(): bool
@@ -93,62 +110,25 @@ class Fighter
         return $this->getLife() > 0;
     }
 
-    /**
-     * Get the value of strength
-     */
-    public function getStrength()
+    public function getStrength(): int
     {
         return $this->strength;
     }
 
-
-    /**
-     * Set the value of strength
-     *
-     * @return  self
-     */
-    public function setStrength($strength)
+    public function setStrength($strength): void
     {
         $this->strength = $strength;
-
-        return $this;
     }
 
-    /**
-     * Get the value of dexterity
-     */
-    public function getDexterity()
+    public function getDexterity(): int
     {
         return $this->dexterity;
     }
 
-    /**
-     * Set the value of dexterity
-     *
-     * @return  self
-     */
-    public function setDexterity($dexterity)
+    public function setDexterity($dexterity): void
     {
         $this->dexterity = $dexterity;
-
-        return $this;
     }
 
-    /**
-     * Get the value of Weapon
-     * @return Weapon|null
-     */
-    public function getWeapon(): ?Weapon
-    {
-        return $this->weapon;
-    }
 
-    /**
-     * Set the value of Weapon
-     * @param Weapon|null $weapon
-     */
-    public function setWeapon(?Weapon $weapon): void
-    {
-        $this->weapon = $weapon;
-    }
 }
