@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+# POO---Workshop-2
+
 # Travaux d'Héraclès #2 : le sanglier d'Érymanthe
  
 Prérequis : cloner ce repository.
@@ -82,8 +83,3 @@ Tu vas refaire quasiment la même chose pour gérer cette fois-ci un bouclier. L
 Réactualise la page, tu fais maintenant beaucoup plus de dégâts et tu es mieux protégé, tu devrais gagner le combat sans trop de difficultés !
  
 N'hésite pas à jouer avec ce code pour aller plus loin, une correction te sera fournie pour le prochain atelier.
-
-=======
-# POO---Workshop-2
-Travaux d'Héraclès #2: le sanglier d'Érymanthe
->>>>>>> 8dce9561af70a16ee634799f19986f4336152795
